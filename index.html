@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard HBH Limadza X Arsebasoka Ke-6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="logo-row">
+      <img src="assets/logo-limadza.png" alt="Logo Limadza">
+      <img src="assets/logo-arsebafc.png" alt="Logo Arseba Football Club">
+    </div>
+    <h1 class="title">Dashboard HBH Limadza X Arsebasoka Ke-6</h1>
+    <p class="subtitle">Silaturahmi &amp; kebersamaan keluarga besar Limadza — pantau jumlah pengunjung dan dana masuk secara langsung.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bronze-deep)" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Pengunjung Landing Page
+      </div>
+      <div class="stat-value loading" id="visitorCount">—</div>
+      <div class="stat-sub" id="visitorSub">orang telah membuka Landing Page acara</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bronze-deep)" stroke-width="1.8"><path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Dana Masuk
+      </div>
+      <div class="stat-value loading" id="totalDana">—</div>
+      <div class="stat-sub" id="danaSub">terkumpul dari donasi panitia &amp; keluarga</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2 class="section-title">Riwayat Dana Masuk</h2>
+      <span class="section-note" id="entryCountNote"></span>
+    </div>
+    <div id="entryListWrap">
+      <div class="empty-state">Memuat data…</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="admin-toggle">
+      <button id="toggleAdmin" type="button">+ Tambah data dana masuk</button>
+    </div>
+    <div id="adminPanel">
+      <div class="form-row" style="margin-top:14px;">
+        <input type="text" id="inpName" placeholder="Nama penyumbang / keterangan">
+        <input type="number" id="inpAmount" placeholder="Jumlah (Rp)" min="0" step="1000">
+      </div>
+      <div class="form-row" style="grid-template-columns:1fr;">
+        <input type="text" id="inpNote" placeholder="Catatan (opsional)">
+      </div>
+      <button class="btn" id="btnAdd">Simpan Dana Masuk</button>
+      <button class="btn btn-ghost" id="btnRefresh" style="margin-left:8px;">Muat Ulang</button>
+      <div class="form-msg" id="formMsg"></div>
+    </div>
+  </div>
+
+  <footer>Data pengunjung &amp; dana masuk tersimpan otomatis dan dapat dilihat oleh siapa pun yang membuka halaman ini.</footer>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
